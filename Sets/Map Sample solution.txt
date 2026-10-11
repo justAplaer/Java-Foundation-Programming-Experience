@@ -1,0 +1,35 @@
+
+Exercise 12: contains3 
+Write a method contains3 that accepts a List of strings as a parameter and returns true if any single string occurs at least 3 times in the list, and false otherwise. Use a map as auxiliary storage.
+
+design:
+grab a word from the list
+     if (map.containsKey(word))
+        map.put (word, map.get(word)+1)
+        if (map.get(word) >=3) return true
+     else // first time seeing the word
+        map.put (word, 1)
+return false
+
+Sample solution: 
+public static boolean contains3(List<String> list) {
+    Map<String, Integer> counts = new HashMap<String, Integer>();
+    for (String value : list) {
+        if (counts.containsKey(value)) {
+            counts.put(value, counts.get(value)+1);
+            if (counts.get(value) >= 3) {
+                return true;
+            }
+        } else {
+            counts.put(value, 1);
+        }
+    }   
+    return false;
+}
+
+
+
+
+
+
+
